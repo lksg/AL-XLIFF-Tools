@@ -1,13 +1,17 @@
 {
-	"name": "xliff-tools",
+	"name": "al-xliff-tools",
 	"publisher": "lksg",
 	"icon": "icon.png",
-	"displayName": "XLIFF Tools",
+	"displayName": "AL XLIFF Tools",
 	"description": "",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.33.0"
 	},
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/lksg/AL-XLIFF-Tools"
+    },
 	"categories": [
 		"Other"
 	],
