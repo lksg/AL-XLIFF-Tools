@@ -1,7 +1,7 @@
 {
 	"name": "al-xliff-tools",
 	"publisher": "lksg",
-	"icon": "icon.png",
+	"icon": "images/icon.png",
 	"displayName": "AL XLIFF Tools",
 	"description": "",
 	"version": "0.0.1",
