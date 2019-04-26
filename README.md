@@ -12,4 +12,4 @@ Cleanes up legacy target nodes that have no more source nodes.
 
 Helps you translate with a nice WebView. (AI powered translations with Azure Translator can be configured)
 
-!(images/TranslationWebview.png)
+![Translation Webview with Custom Azure Translation](images/TranslationWebview.png)
