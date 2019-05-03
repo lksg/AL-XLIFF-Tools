@@ -78,6 +78,12 @@
 					"default": "",
 					"description": "Api key for Azure Translator",
 					"scope": "window"
+				},
+				"snc.azure.translator.categoryid": {
+					"type": "string",
+					"default": "",
+					"description": "Category for Custom Azure Translator",
+					"scope": "window"
 				}
 			}
 		}

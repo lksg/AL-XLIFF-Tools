@@ -108,7 +108,11 @@ export class TranslationWebView {
                 var translationPath = uriElement.fsPath;
                 var translationXLF = tools.openAndParseXlf(translationPath);
                 var translatioNodes = translationXLF.getElementsByTagName(transTag);   
-                
+                if (!translatioNodes){
+                    vscode.window.showInformationMessage('nothing to translate');
+                    this.dispose();
+                }
+
                 for (let i=0; i < translatioNodes.length; i++) {
                     if (translatioNodes[i].getElementsByTagName('target')[0].textContent === ''){
                         var translation = {

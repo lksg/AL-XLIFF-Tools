@@ -10,6 +10,7 @@ export class XLIFFTranslator {
     private static readonly writeFile = util.promisify(fs.writeFile);
     private static readonly readFile = util.promisify(fs.readFile);
     private translationServiceApiKey: string | undefined;
+    private translationServiceCategoryID: string | undefined;
 
     // Translate the XLIFF files in the workspace
     async translate(targetLanguage: string, sources: string): Promise<any> {
@@ -22,7 +23,7 @@ export class XLIFFTranslator {
         }   
       
         // Issue the REST call to the translation service
-        const url = 'https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&category=f8e60695-29f5-4f76-825b-7d463d301c17-BUSINES&from=en&to=' + targetLanguage;
+        const url = `https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&category=${this.translationServiceCategoryID}&from=en&to=` + targetLanguage;
         var headers: trc.IHeaders = {};
         headers['Content-Type'] = 'application/json';
         headers['Ocp-Apim-Subscription-Key'] = this.translationServiceApiKey;
@@ -40,6 +41,13 @@ export class XLIFFTranslator {
 
     // Retrieve the translation service api key
     private async getTranslationServiceApiKey(): Promise<string | undefined> {
+        const categoryID = vscode.workspace.getConfiguration().get<string>('snc.azure.translator.categoryid');
+        if (!util.isUndefined(categoryID)) {
+            this.translationServiceCategoryID = categoryID;
+        }else {
+            this.translationServiceCategoryID = 'general';
+        }
+
         if (!util.isUndefined(this.translationServiceApiKey)) {
             return this.translationServiceApiKey;
         }
